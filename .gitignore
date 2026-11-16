@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.venv/
+.env
+.env.*
+.DS_Store
+Thumbs.db
+
+# Se publica el JSON final y las capturas de VS Code; se conserva el borrador local.
+/data/datasetG3.preliminar.json
+/evidencias/*.png
+/evidencias/validacion_paso2.txt

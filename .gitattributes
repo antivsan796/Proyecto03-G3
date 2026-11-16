@@ -1,0 +1,11 @@
+* text=auto
+*.py text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.png binary
+.gitattributes text eol=lf
+.gitignore text eol=lf
+
+# Conservar los bytes y los saltos de línea del CSV original.
+data/datasetG3.csv -text whitespace=cr-at-eol

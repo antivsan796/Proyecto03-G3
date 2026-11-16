@@ -1,0 +1,30 @@
+Comando: python scripts/csv_to_json.py
+
+Registros del CSV: 588
+Columnas: 13
+Nombres de columnas: FECHA, SUBSISTEMA, ENTIDAD, TIPO DE CREDITO, TIPO DE OPERACION, ESTADO DE LA OPERACION, PROVINCIA, CANTON, SECTOR, SUBSECTOR, ACTIVIDAD, NÚMERO DE OPERACIONES, MONTO OTORGADO
+Valores faltantes por columna:
+  FECHA: 0
+  SUBSISTEMA: 0
+  ENTIDAD: 0
+  TIPO DE CREDITO: 0
+  TIPO DE OPERACION: 0
+  ESTADO DE LA OPERACION: 0
+  PROVINCIA: 0
+  CANTON: 0
+  SECTOR: 0
+  SUBSECTOR: 0
+  ACTIVIDAD: 0
+  NÚMERO DE OPERACIONES: 0
+  MONTO OTORGADO: 0
+Fechas inválidas: 0
+Enteros inválidos: 0
+Decimales inválidos: 0
+Filas duplicadas después de limpiar espacios: 0
+Campos con espacios exteriores limpiados: 0
+Etapa de validación del CSV terminada.
+588 registros convertidos.
+FECHA: aaaa-mm-dd | operaciones: int | monto: float | categorías: str
+Campos categóricos normalizados: 449
+JSON generado: datasetG3.json
+Siguiente comprobación: python scripts/validar_json.py

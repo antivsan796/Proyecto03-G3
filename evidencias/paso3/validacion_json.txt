@@ -1,0 +1,34 @@
+Comando: python scripts/validar_json.py
+
+VALIDACIÓN INDEPENDIENTE DEL JSON
+Tipo de la raíz: list
+Registros CSV: 588 | Registros JSON: 588
+Claves por registro: 13; mismas columnas que el CSV.
+Valores faltantes por columna:
+  FECHA: 0
+  SUBSISTEMA: 0
+  ENTIDAD: 0
+  TIPO DE CREDITO: 0
+  TIPO DE OPERACION: 0
+  ESTADO DE LA OPERACION: 0
+  PROVINCIA: 0
+  CANTON: 0
+  SECTOR: 0
+  SUBSECTOR: 0
+  ACTIVIDAD: 0
+  NÚMERO DE OPERACIONES: 0
+  MONTO OTORGADO: 0
+Fechas inválidas: 0
+Enteros inválidos: 0
+Decimales inválidos: 0
+Otros tipos inválidos: 0
+Filas duplicadas completas: 0
+Registros diferentes del CSV normalizado: 0
+Variantes o espacios internos pendientes: 0
+Campos categóricos normalizados: 449; registros afectados: 376
+  SECTOR: 150 campos normalizados
+  SUBSECTOR: 38 campos normalizados
+  ACTIVIDAD: 261 campos normalizados
+Total de operaciones: 1206
+Monto total otorgado: 1462645012.06
+Validación terminada: CORRECTA.
