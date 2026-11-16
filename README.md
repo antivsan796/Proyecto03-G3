@@ -37,8 +37,10 @@ Dejé las imágenes con estos nombres para identificar lo que muestra cada una:
 - [Resultado de la validación](evidencias/validacion/resultado_validacion_json.png).
 - [Vista del JSON generado](evidencias/validacion/vista_json_generado.png).
 
-## Lo que me falta
+## Informe
 
-Me falta terminar la sección del Sprint 1 en el informe PDF e incluir las evidencias con su explicación.
+Reuní las fases anteriores y el desarrollo del Sprint 1 en el [informe del proyecto](informe/Proyecto_03_Fase_4_Sprint_1_G3.pdf), con los resultados de la validación y las capturas de VS Code.
+
+## Lo que me falta
 
 Para continuar con el proyecto, todavía tengo que desarrollar los componentes en React, conectar Firebase e implementar los indicadores, gráficos y filtros del dashboard.

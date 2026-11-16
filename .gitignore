@@ -10,3 +10,6 @@ Thumbs.db
 /data/datasetG3.preliminar.json
 /evidencias/*.png
 /evidencias/validacion_paso2.txt
+
+# Copias temporales de las capturas; las definitivas están en conversion y validacion.
+/evidencias/informe/
