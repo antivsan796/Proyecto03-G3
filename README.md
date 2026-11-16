@@ -12,6 +12,8 @@ También limpié espacios y unifiqué nombres de categorías que estaban escrito
 
 Finalmente, comprobé el JSON con un script separado. Se mantienen los 588 registros y no encontré valores faltantes, fechas inválidas ni filas duplicadas.
 
+También empecé el dashboard en React siguiendo los componentes de la Fase 3. Ya puedo consultar el JSON local, filtrar los datos y ver los indicadores, los gráficos y el detalle de operaciones. En escritorio uso una tabla y en móvil muestro tarjetas con paginación.
+
 ## Cómo lo ejecuto
 
 Uso Python 3.9 o posterior. Desde la carpeta del proyecto ejecuto:
@@ -23,11 +25,23 @@ python scripts/validar_json.py
 
 El primer comando genera `data/datasetG3.json` y el segundo comprueba el resultado. No necesito instalar paquetes adicionales.
 
+Para abrir el dashboard uso Node.js 22.12 o posterior y ejecuto:
+
+```sh
+npm install
+npm run dev
+```
+
+Abro la dirección que aparece en la consola. En Codespaces también puedo abrir el puerto 5173 desde la pestaña Ports. Por ahora los datos se leen de `data/datasetG3.json`.
+
+Para comprobar los cálculos ejecuto `npm test` y para generar la aplicación uso `npm run build`.
+
 ## Archivos del proyecto
 
 - En `data/` dejé el CSV original, el JSON generado y los nombres de categorías que corregí.
 - En `scripts/` están el conversor y el validador.
 - En `evidencias/` guardé las capturas de VS Code y los resultados de ejecución.
+- En `src/` organicé los componentes, los cálculos y la lectura de datos del dashboard.
 
 Dejé las imágenes con estos nombres para identificar lo que muestra cada una:
 
@@ -36,6 +50,9 @@ Dejé las imágenes con estos nombres para identificar lo que muestra cada una:
 - [Vista del JSON preliminar](evidencias/conversion/vista_json_preliminar.png).
 - [Resultado de la validación](evidencias/validacion/resultado_validacion_json.png).
 - [Vista del JSON generado](evidencias/validacion/vista_json_generado.png).
+- [Dashboard en escritorio](evidencias/dashboard/dashboard_escritorio.png).
+- [Dashboard en móvil](evidencias/dashboard/dashboard_movil.png).
+- [Dashboard con filtros aplicados](evidencias/dashboard/dashboard_filtrado.png).
 
 ## Informe
 
@@ -43,4 +60,4 @@ Reuní las fases anteriores y el desarrollo del Sprint 1 en el [informe del proy
 
 ## Lo que me falta
 
-Para continuar con el proyecto, todavía tengo que desarrollar los componentes en React, conectar Firebase e implementar los indicadores, gráficos y filtros del dashboard.
+Me falta conectar Firebase, comprobar el funcionamiento con los datos en la nube y preparar las evidencias y el informe del siguiente sprint. Esta primera versión del dashboard todavía trabaja con el JSON local.

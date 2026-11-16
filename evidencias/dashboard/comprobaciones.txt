@@ -1,0 +1,13 @@
+Dashboard React - Grupo 3
+Datos: 588 registros y 13 columnas del JSON validado en el Sprint 1.
+Indicadores: USD 1.462.645.012,06; 1.206 operaciones; promedio USD 1.212.806,81.
+Comprobaciones en Microsoft Edge: CORRECTAS.
+- Filtros por provincia y canton, con reinicio de filtros dependientes.
+- Fechas inclusivas y monto maximo; indicadores actualizados.
+- Resultados vacios y restablecimiento de filtros.
+- Orden por fecha, detalle completo de categorias y paginacion.
+- Exportacion CSV de los registros seleccionados.
+- Pantallas de 320, 390, 768, 1024 y 1440 px, sin desbordamiento horizontal.
+- Tabla en escritorio y tarjetas en movil.
+- Sin errores de JavaScript ni errores en la consola.
+La fuente de datos de esta version es local. Firebase queda pendiente.
