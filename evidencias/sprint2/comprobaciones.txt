@@ -1,0 +1,13 @@
+Proyecto 03 - Sprint 2: Componentes e interfaces React
+TypeScript estricto: npm run typecheck. Pruebas de cálculos: npm test. Compilación: npm run build.
+Interfaz revisada en Microsoft Edge con datos de ejemplo y el JSON validado.
+12 registros de ejemplo, extraídos del JSON del Sprint 1. Dataset completo: 588 registros.
+Componentes Material UI: Grid, Card, Paper, TextField, Slider, Table, Pagination, Switch y Typography.
+Interacción comprobada: cambiar Provincia actualiza registros, indicadores y gráficos y reinicia la página.
+Antes: 12 registros; USD 33881180.41.
+Con GUAYAS: 2 registros; USD 21506479.00.
+También se revisaron fechas inclusivas, rango de montos, filtros dependientes, resultados vacíos, orden y exportación.
+Pantallas: 320, 390, 768, 900, 1024 y 1440 px, sin desbordamiento horizontal de la página.
+Desde md (900 px) se presenta una tabla. En pantallas menores se presentan tarjetas.
+Errores de JavaScript y de consola: 0.
+Datos locales. La conexión a Firebase corresponde a una etapa posterior.

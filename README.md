@@ -12,7 +12,9 @@ También limpié espacios y unifiqué nombres de categorías que estaban escrito
 
 Finalmente, comprobé el JSON con un script separado. Se mantienen los 588 registros y no encontré valores faltantes, fechas inválidas ni filas duplicadas.
 
-También empecé el dashboard en React siguiendo los componentes de la Fase 3. Ya puedo consultar el JSON local, filtrar los datos y ver los indicadores, los gráficos y el detalle de operaciones. En escritorio uso una tabla y en móvil muestro tarjetas con paginación.
+Para el Sprint 2 adapté el dashboard a React con TypeScript y Material UI, siguiendo el árbol del Word de la Fase 3. Separé los filtros, los indicadores, los gráficos y el detalle de operaciones en componentes con props tipadas.
+
+Al abrir la página se muestran 12 registros de ejemplo tomados del JSON. Con el interruptor “Usar datos de ejemplo” puedo cambiar al dataset completo. Al seleccionar una provincia, `useState` guarda el filtro, actualiza los indicadores y vuelve a la primera página.
 
 ## Cómo lo ejecuto
 
@@ -34,14 +36,14 @@ npm run dev
 
 Abro la dirección que aparece en la consola. En Codespaces también puedo abrir el puerto 5173 desde la pestaña Ports. Por ahora los datos se leen de `data/datasetG3.json`.
 
-Para comprobar los cálculos ejecuto `npm test` y para generar la aplicación uso `npm run build`.
+Para comprobar los tipos ejecuto `npm run typecheck`; para revisar los cálculos, `npm test`. Con `npm run build` compruebo los tipos y genero la aplicación.
 
 ## Archivos del proyecto
 
 - En `data/` dejé el CSV original, el JSON generado y los nombres de categorías que corregí.
 - En `scripts/` están el conversor y el validador.
 - En `evidencias/` guardé las capturas de VS Code y los resultados de ejecución.
-- En `src/` organicé los componentes, los cálculos y la lectura de datos del dashboard.
+- En `src/components/` están los componentes TSX; en `src/hooks/`, el estado y los datos; y en `src/types/`, las interfaces compartidas.
 
 Dejé las imágenes con estos nombres para identificar lo que muestra cada una:
 
@@ -53,11 +55,17 @@ Dejé las imágenes con estos nombres para identificar lo que muestra cada una:
 - [Dashboard en escritorio](evidencias/dashboard/dashboard_escritorio.png).
 - [Dashboard en móvil](evidencias/dashboard/dashboard_movil.png).
 - [Dashboard con filtros aplicados](evidencias/dashboard/dashboard_filtrado.png).
+- [Interfaz del Sprint 2 en escritorio](evidencias/sprint2/interfaz_escritorio.png).
+- [Indicadores en móvil](evidencias/sprint2/movil_indicadores.png).
+- [Operaciones en móvil](evidencias/sprint2/movil_operaciones.png).
+- [Cambio del filtro de provincia](evidencias/sprint2/interaccion_filtro_provincia.png).
 
 ## Informe
 
 Reuní las fases anteriores y el desarrollo del Sprint 1 en el [informe del proyecto](informe/Proyecto_03_Fase_4_Sprint_1_G3.pdf), con los resultados de la validación y las capturas de VS Code.
 
+El [reporte del Sprint 2](informe/Proyecto_03_Fase_4_Sprint_2_G3.pdf) añade los componentes implementados, las props, la interacción con `useState`, las capturas y el SHA de la implementación. Conservé el formato del Word de la Fase 3.
+
 ## Lo que me falta
 
-Me falta conectar Firebase, comprobar el funcionamiento con los datos en la nube y preparar las evidencias y el informe del siguiente sprint. Esta primera versión del dashboard todavía trabaja con el JSON local.
+Me falta conectar Firebase y comprobar el funcionamiento con los datos en la nube. El Sprint 2 usa datos locales; la integración con Firebase queda para la siguiente etapa del proyecto.
