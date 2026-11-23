@@ -1,13 +1,17 @@
 {
   "name": "proyecto03-g3",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build",
+<<<<<<< HEAD
+=======
+    "typecheck": "tsc --noEmit",
+>>>>>>> origin/sprint-2-react-typescript-mui
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test tests/dashboard.test.js"
+    "test": "tsx --test tests/dashboard.test.ts"
   },
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
@@ -15,7 +19,12 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
+<<<<<<< HEAD
     "@mui/material": "^9.6.0",
+=======
+    "@mui/material": "^9.5.0",
+    "@mui/icons-material": "^9.5.0",
+>>>>>>> origin/sprint-2-react-typescript-mui
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "recharts": "^3.10.1"
@@ -24,6 +33,13 @@
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.3.0",
+<<<<<<< HEAD
+=======
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "tsx": "^4.23.15",
+>>>>>>> origin/sprint-2-react-typescript-mui
     "typescript": "^7.0.2",
     "vite": "^8.3.8"
   }
