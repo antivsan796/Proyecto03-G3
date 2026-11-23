@@ -30,6 +30,10 @@ Object.defineProperty(dom.window, 'matchMedia', {
   }),
 });
 
+Object.defineProperty(dom.window.HTMLElement.prototype, 'getBoundingClientRect', {
+  value: () => new dom.window.DOMRect(0, 0, 600, 300),
+});
+
 class ResizeObserverStub {
   observe() {}
   unobserve() {}
