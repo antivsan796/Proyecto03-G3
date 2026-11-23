@@ -1,21 +1,6 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-<<<<<<< HEAD
-    "useDefineForClassFields": true,
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "allowJs": true,
-    "checkJs": false,
-    "jsx": "react-jsx",
-    "strict": true,
-    "skipLibCheck": true,
-    "noEmit": true,
-    "types": ["vite/client"]
-  },
-  "include": ["src"]
-=======
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "moduleResolution": "Bundler",
@@ -32,5 +17,4 @@
     "types": ["vite/client", "node"]
   },
   "include": ["src", "tests", "vite.config.ts"]
->>>>>>> origin/sprint-2-react-typescript-mui
 }
