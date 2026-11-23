@@ -46,17 +46,27 @@ Object.defineProperty(dom.window, 'ResizeObserver', { value: ResizeObserverStub 
 test('cambiar provincia actualiza los registros y los indicadores del dashboard', async () => {
   const { cleanup, fireEvent, render, screen } = await import('@testing-library/react');
   const { default: App } = await import('../src/App');
+  const { formatMoney, formatNumber } = await import('../src/utils/format');
 
   render(<App />);
 
   try {
     const province = await screen.findByRole('combobox', { name: 'Provincia' });
-    await screen.findByText(/12 registros · 24 operaciones/);
+    const exampleSwitch = await screen.findByRole('switch', { name: 'Usar datos de ejemplo' });
+    assert.equal((exampleSwitch as HTMLInputElement).checked, false);
+    await screen.findByText(`588 registros · ${formatNumber(1206)} operaciones`);
+    await screen.findByText('Último registro de los datos mostrados: 31/07/2026');
+    assert.ok(screen.getByText(/Derechos reservados © 2026/));
+    assert.equal(screen.queryByText('CFN B.P. / Grupo 3'), null);
+
     fireEvent.change(province, { target: { value: 'GUAYAS' } });
 
-    await screen.findByText(/2 registros · 13 operaciones/);
-    assert.match(screen.getByRole('article', { name: 'Número de operaciones' }).textContent ?? '', /13/);
-    assert.match(screen.getByRole('article', { name: 'Monto otorgado' }).textContent ?? '', /21\.506\.479,00/);
+    await screen.findByText(`154 registros · ${formatNumber(208)} operaciones`);
+    assert.match(screen.getByRole('article', { name: 'Número de operaciones' }).textContent ?? '', /208/);
+    assert.match(screen.getByRole('article', { name: 'Monto otorgado' }).textContent ?? '', new RegExp(formatMoney(551553175.14).replace(/[.*+?^${}()|[\]\\]/g, '\\$&')));
+
+    fireEvent.click(exampleSwitch);
+    await screen.findByText(`12 registros · ${formatNumber(24)} operaciones`);
   } finally {
     cleanup();
   }

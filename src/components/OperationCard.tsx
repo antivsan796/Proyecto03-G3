@@ -1,6 +1,7 @@
 import { Box, Card, CardContent, Chip, Divider, Stack, Typography } from '@mui/material';
 import CategoryText from './CategoryText';
 import { formatDate, formatMoney, formatNumber } from '../utils/format';
+import { getOperationStatusStyle } from '../utils/operationStatus';
 import type { Operation } from '../types/dashboard';
 
 interface OperationCardProps { operation: Operation }
@@ -13,7 +14,7 @@ export default function OperationCard({ operation }: OperationCardProps) {
   return <Card component="article"><CardContent sx={{ p: 2.5 }}>
     <Stack direction="row" spacing={1} sx={{ justifyContent: 'space-between', alignItems: 'center' }}>
       <Typography component="time" dateTime={operation.fecha} variant="caption">{formatDate(operation.fecha)}</Typography>
-      <Chip label={operation.estado} size="small" sx={{ bgcolor: '#e8f3ee', color: '#2f6553', height: 23, fontSize: 9 }} />
+      <Chip label={operation.estado} size="small" sx={{ ...getOperationStatusStyle(operation.estado), height: 23, fontSize: 9 }} />
     </Stack>
     <Typography variant="h3" sx={{ my: 2 }}>{operation.tipoCredito}</Typography>
     <Stack component="dl" spacing={1.5} sx={{ m: 0 }}>{details.map(([label, value]) => <Box key={label}>

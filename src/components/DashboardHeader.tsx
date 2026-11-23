@@ -17,7 +17,6 @@ export default function DashboardHeader({ title, subtitle, onExport, exportDisab
           <Box sx={{ bgcolor: 'primary.main', color: 'white', display: 'flex', p: .6, borderRadius: 1 }}><BarChartOutlined /></Box>
           <Typography sx={{ fontSize: { xs: 10, sm: 12 }, fontWeight: 700 }}>DASHBOARD INFORMATIVO</Typography>
         </Stack>
-        <Typography variant="caption" color="text.secondary" sx={{ fontSize: { xs: 9, sm: 12 } }}>CFN B.P. / Grupo 3</Typography>
       </Toolbar></Container>
     </AppBar>
     <Container maxWidth="xl" sx={{ pt: 4, pb: 2.5 }}>

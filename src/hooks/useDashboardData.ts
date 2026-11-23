@@ -8,7 +8,7 @@ export function useDashboardData() {
   const [filters, setFilters] = useState<DashboardFilters>({ ...emptyFilters });
   const [page, setPage] = useState(1);
   const [order, setOrder] = useState<DateOrder>('newest');
-  const [useExamples, setUseExamples] = useState(true);
+  const [useExamples, setUseExamples] = useState(false);
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const rowsPerPage = 6;
 

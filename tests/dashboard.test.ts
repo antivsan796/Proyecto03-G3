@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { emptyFilters, filterOperations, getMetrics, getPage, groupAmounts, groupSectors, toCsv, updateFilters } from '../src/utils/dashboard';
 import { mapOperations, toCsvRow } from '../src/utils/operations';
 import { formatDate } from '../src/utils/format';
+import { getOperationStatusStyle } from '../src/utils/operationStatus';
 import type { CsvOperation, DashboardFilters } from '../src/types/dashboard';
 
 const original: CsvOperation[] = JSON.parse(await readFile(new URL('../data/datasetG3.json', import.meta.url), 'utf8'));
@@ -49,6 +50,14 @@ test('cambiar provincia o sector limpia los filtros dependientes', () => {
   assert.equal(changed.subsector, '');
   assert.equal(changed.activity, '');
   assert.equal(updateFilters(filters, 'subsector', 'E').activity, '');
+});
+
+test('asigna colores semánticos a cada estado de crédito', () => {
+  assert.equal(getOperationStatusStyle('ORIGINAL').color, '#2f6553');
+  assert.equal(getOperationStatusStyle('NOVADA').color, '#315a89');
+  assert.equal(getOperationStatusStyle('REFINANCIADA').color, '#a32727');
+  assert.equal(getOperationStatusStyle('REESTRUCTURADA').color, '#653d80');
+  assert.equal(getOperationStatusStyle('REFINANCIAMIENTO').color, '#a32727');
 });
 
 test('todos los gráficos conservan el monto total y ordenan los meses', () => {

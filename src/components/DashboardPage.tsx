@@ -12,6 +12,7 @@ const ChartsSection = lazy(() => import('./ChartsSection'));
 
 export default function DashboardPage() {
   const data = useDashboardData();
+  const lastShownDate = data.filteredRows.reduce((latest, row) => row.fecha > latest ? row.fecha : latest, '');
 
   function exportCsv() {
     const url = URL.createObjectURL(new Blob([toCsv(data.filteredRows)], { type: 'text/csv;charset=utf-8;' }));
@@ -46,7 +47,7 @@ export default function DashboardPage() {
         <OperationsSection rows={data.filteredRows} visibleRows={data.visibleRows} totalOperations={data.metrics.operations}
           page={data.page} rowsPerPage={data.rowsPerPage} totalPages={data.totalPages} onPageChange={data.setPage}
           order={data.order} onOrderChange={data.changeOrder} onReset={data.resetFilters} />
-        <Footer datasetSource="Corporación Financiera Nacional B.P." lastUpdate={data.bounds.endDate} />
+        <Footer datasetSource="Corporación Financiera Nacional B.P." lastUpdate={lastShownDate} />
       </>}
     </Container>
   </>;
