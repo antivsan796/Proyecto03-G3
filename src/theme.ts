@@ -1,6 +1,12 @@
 import { createTheme } from '@mui/material/styles';
 import { esES } from '@mui/material/locale';
 
+export const chartColors = {
+  series: ['#176276', '#259295', '#75a8b9', '#c49a54', '#84949f', '#d5dfe3'],
+  track: '#f0f4f5',
+  grid: '#e8eef0',
+} as const;
+
 export const theme = createTheme({
   palette: {
     primary: { main: '#145c6e' },
