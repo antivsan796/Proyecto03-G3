@@ -71,3 +71,34 @@ test('cambiar provincia actualiza los registros y los indicadores del dashboard'
     cleanup();
   }
 });
+
+test('la tabla no muestra controles de ordenamiento por flechas', async () => {
+  const { cleanup, render, screen } = await import('@testing-library/react');
+  const { default: OperationsTable } = await import('../src/components/OperationsTable');
+
+  render(<OperationsTable rows={[]} page={1} rowsPerPage={6} />);
+
+  try {
+    assert.equal(screen.queryByRole('button', { name: /^Ordenar por / }), null);
+    assert.ok(screen.getByText('Tipo de operación'));
+  } finally {
+    cleanup();
+  }
+});
+
+test('el selector de fecha está junto al título del detalle y no restablece filtros', async () => {
+  const { cleanup, render, screen } = await import('@testing-library/react');
+  const { default: OperationsSection } = await import('../src/components/OperationsSection');
+  let reset = false;
+
+  render(<OperationsSection rows={[]} page={1} rowsPerPage={6} order="newest" onOrderChange={() => {}}
+    onPageChange={() => {}} onReset={() => { reset = true; }} />);
+
+  try {
+    assert.ok(screen.getByRole('combobox', { name: 'Ordenar por fecha' }));
+    assert.equal(screen.queryByRole('button', { name: 'Restablecer filtros' }), null);
+    assert.equal(reset, false);
+  } finally {
+    cleanup();
+  }
+});

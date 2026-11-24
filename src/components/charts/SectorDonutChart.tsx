@@ -1,4 +1,5 @@
 import { Box, Stack, Typography } from '@mui/material';
+import DonutLargeOutlined from '@mui/icons-material/DonutLargeOutlined';
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
 import ChartPanel from './ChartPanel';
 import { formatMoney } from '../../utils/format';
@@ -9,7 +10,7 @@ interface SectorDonutChartProps { title: string; data: CategoryValue[] }
 
 export default function SectorDonutChart({ title, data }: SectorDonutChartProps) {
   const total = data.reduce((sum, item) => sum + item.amount, 0);
-  return <ChartPanel title={title} subtitle="Cinco sectores principales y otros sectores" empty={!data.length}>
+  return <ChartPanel title={title} icon={<DonutLargeOutlined fontSize="small" />} subtitle="Participación por sector económico" empty={!data.length}>
     <Box sx={{ height: 170, position: 'relative' }} role="img" aria-label="Distribución del monto por sector económico">
       <ResponsiveContainer width="100%" height="100%" minWidth={0}>
         <PieChart accessibilityLayer>

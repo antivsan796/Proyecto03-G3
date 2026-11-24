@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import ShowChartOutlined from '@mui/icons-material/ShowChartOutlined';
 import { CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import ChartPanel from './ChartPanel';
 import { formatCompact, formatMoney, formatMonth } from '../../utils/format';
@@ -8,7 +9,7 @@ import { chartColors } from '../../theme';
 interface TimeSeriesChartProps { title: string; data: TimePoint[] }
 
 export default function TimeSeriesChart({ title, data }: TimeSeriesChartProps) {
-  return <ChartPanel title={title} subtitle="Montos agrupados por mes · USD" empty={!data.length}>
+  return <ChartPanel title={title} icon={<ShowChartOutlined fontSize="small" />} subtitle="Montos desembolsados por mes · USD" empty={!data.length}>
     <Box sx={{ height: 300, width: '100%', minWidth: 0 }} role="img" aria-label="Evolución mensual del monto otorgado en dólares">
       <ResponsiveContainer width="100%" height="100%" minWidth={0}>
         <LineChart data={data} margin={{ top: 12, right: 10, bottom: 8, left: 0 }} accessibilityLayer>

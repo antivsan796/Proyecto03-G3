@@ -14,7 +14,7 @@ export default function OperationsTable({ rows, page, rowsPerPage }: OperationsT
     '& th': { bgcolor: '#f8fafb', color: 'text.secondary', fontWeight: 500 } }}>
     <caption style={{ position: 'absolute', width: 1, height: 1, overflow: 'hidden', clipPath: 'inset(50%)' }}>Detalle de operaciones crediticias de la página actual</caption>
     <TableHead><TableRow>{headers.map((label, index) => <TableCell key={label} align={index > 7 ? 'right' : 'left'}
-      sx={{ width: `${[7, 10, 7, 9, 10, 10, 11, 17, 7, 12][index]}%` }}>{label}</TableCell>)}</TableRow></TableHead>
+      sx={{ width: `${[7, 10, 12, 9, 10, 9, 10, 14, 7, 12][index]}%`, whiteSpace: index === 2 ? 'nowrap' : 'normal' }}>{label}</TableCell>)}</TableRow></TableHead>
     <TableBody>{visibleRows.map((row) => <TableRow key={row.id} hover>
       <TableCell>{formatDate(row.fecha)}</TableCell><TableCell>{row.tipoCredito}</TableCell><TableCell>{row.tipoOperacion}</TableCell>
       <TableCell><Chip label={row.estado} size="small" sx={{ ...getOperationStatusStyle(row.estado), fontSize: 8, height: 'auto', '& .MuiChip-label': { whiteSpace: 'normal', px: .75, py: .3 } }} /></TableCell>

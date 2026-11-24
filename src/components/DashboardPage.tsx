@@ -14,6 +14,10 @@ export default function DashboardPage() {
   const data = useDashboardData();
   const lastShownDate = data.filteredRows.reduce((latest, row) => row.fecha > latest ? row.fecha : latest, '');
 
+  function resetFilters() {
+    data.resetFilters();
+  }
+
   function exportCsv() {
     const url = URL.createObjectURL(new Blob([toCsv(data.filteredRows)], { type: 'text/csv;charset=utf-8;' }));
     const link = document.createElement('a');
@@ -39,14 +43,13 @@ export default function DashboardPage() {
       {data.status === 'loading' && <Stack spacing={2} sx={{ py: 6, alignItems: 'center' }} role="status"><CircularProgress /><Typography>Cargando operaciones crediticias…</Typography></Stack>}
       {data.status === 'error' && <Alert severity="error" action={<Button color="inherit" onClick={() => window.location.reload()}>Reintentar</Button>}>No se pudieron cargar los datos.</Alert>}
       {data.status === 'ready' && <>
-        <FiltersPanel filters={data.filters} onChange={data.changeFilters} rows={data.rows} bounds={data.bounds} onReset={data.resetFilters} />
+        <FiltersPanel filters={data.filters} onChange={data.changeFilters} rows={data.rows} bounds={data.bounds} onReset={resetFilters} />
         <KpiSection metrics={data.metrics} />
         <Suspense fallback={<Typography role="status" sx={{ py: 4 }}>Cargando gráficos…</Typography>}>
           <ChartsSection timeSeries={data.timeSeries} byCreditType={data.byCreditType} bySector={data.bySector} />
         </Suspense>
-        <OperationsSection rows={data.filteredRows} visibleRows={data.visibleRows} totalOperations={data.metrics.operations}
-          page={data.page} rowsPerPage={data.rowsPerPage} totalPages={data.totalPages} onPageChange={data.setPage}
-          order={data.order} onOrderChange={data.changeOrder} onReset={data.resetFilters} />
+        <OperationsSection rows={data.filteredRows} page={data.page} rowsPerPage={data.rowsPerPage} onPageChange={data.setPage}
+          order={data.order} onOrderChange={data.changeOrder} onReset={resetFilters} />
         <Footer datasetSource="Corporación Financiera Nacional B.P." lastUpdate={lastShownDate} />
       </>}
     </Container>

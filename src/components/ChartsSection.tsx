@@ -1,4 +1,4 @@
-import { Grid, Stack, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import TimeSeriesChart from './charts/TimeSeriesChart';
 import CreditTypeBarChart from './charts/CreditTypeBarChart';
 import SectorDonutChart from './charts/SectorDonutChart';
@@ -8,10 +8,7 @@ interface ChartsSectionProps { timeSeries: TimePoint[]; byCreditType: CategoryVa
 
 export default function ChartsSection({ timeSeries, byCreditType, bySector }: ChartsSectionProps) {
   return <section aria-labelledby="charts-title">
-    <Stack direction={{ xs: 'column', sm: 'row' }} spacing={.75} sx={{ mb: 1.5, justifyContent: 'space-between' }}>
-      <Typography id="charts-title" variant="h2">Composición y evolución</Typography>
-      <Typography variant="caption" color="text.secondary">Montos en dólares estadounidenses</Typography>
-    </Stack>
+    <Typography id="charts-title" variant="h2" sx={{ mb: 1.5 }}>Composición y evolución</Typography>
     <Grid container spacing={2}>
       <Grid size={{ xs: 12, md: 4 }}><TimeSeriesChart title="Evolución del monto otorgado" data={timeSeries} /></Grid>
       <Grid size={{ xs: 12, md: 4 }}><CreditTypeBarChart title="Monto por tipo de crédito" data={byCreditType} /></Grid>
