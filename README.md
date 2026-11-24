@@ -270,11 +270,13 @@ Las imágenes se organizan con estos nombres para identificar lo que muestra cad
 
 ## Bibliografía
 
-- Avendaño, A. (18 de noviembre de 2026). *Conversión de CSV a JSON*. [https://dawm3.readthedocs.io/es/latest/recursos/extras/csvtojson.html](https://dawm3.readthedocs.io/es/latest/recursos/extras/csvtojson.html)
-- Componentdriven. (13 de noviembre de 2026). *Componentdriven*. [https://www.componentdriven.org/](https://www.componentdriven.org/)
-- Corporación Financiera Nacional B.P. (27 de agosto de 2026). *Serie mensual de volumen de crédito y contingentes*. [https://www.datosabiertos.gob.ec/dataset/serie-mensual-de-volumen-de-credito-y-contingentes](https://www.datosabiertos.gob.ec/dataset/serie-mensual-de-volumen-de-credito-y-contingentes)
-- developer.mozilla. (13 de noviembre de 2026). *Diseño responsivo*. [https://developer.mozilla.org/es/docs/Learn_web_development/Core/CSS_layout/Responsive_Design](https://developer.mozilla.org/es/docs/Learn_web_development/Core/CSS_layout/Responsive_Design)
-- Figma. (05 de noviembre de 2026). *Figma*. [https://www.figma.com/](https://www.figma.com/)
-- Python. (19 de noviembre de 2026). *CSV File Reading and Writing*. [https://docs.python.org/3/library/csv.html](https://docs.python.org/3/library/csv.html)
-- React. (13 de noviembre de 2026). *Passing Props to a Component*. [https://react.dev/learn/passing-props-to-a-component](https://react.dev/learn/passing-props-to-a-component)
-- TypeScript. (13 de noviembre de 2026). *Documentation*. [https://www.typescriptlang.org/docs/](https://www.typescriptlang.org/docs/)
+- Avendaño, A. (18 de noviembre de 2026). *readthedocs*. Obtenido de readthedocs: [https://dawm3.readthedocs.io/es/latest/recursos/extras/csvtojson.html](https://dawm3.readthedocs.io/es/latest/recursos/extras/csvtojson.html)
+- Componentdriven. (13 de noviembre de 2026). *Componentdriven*. Obtenido de Componentdriven: [https://www.componentdriven.org/](https://www.componentdriven.org/)
+- Corporación Financiera Nacional B.P. (27 de agosto de 2026). *datosabiertos*. Obtenido de datosabiertos: [https://www.datosabiertos.gob.ec/dataset/serie-mensual-de-volumen-de-credito-y-contingentes](https://www.datosabiertos.gob.ec/dataset/serie-mensual-de-volumen-de-credito-y-contingentes)
+- developer.mozilla. (13 de noviembre de 2026). *developer.mozilla*. Obtenido de developer.mozilla: [https://developer.mozilla.org/es/docs/Learn_web_development/Core/CSS_layout/Responsive_Design](https://developer.mozilla.org/es/docs/Learn_web_development/Core/CSS_layout/Responsive_Design)
+- Figma. (05 de noviembre de 2026). *Figma*. Obtenido de Figma: [https://www.figma.com/](https://www.figma.com/)
+- MaterialUI. (20 de noviembre de 2026). *MaterialUI*. Obtenido de MaterialUI: [https://mui.com/material-ui/getting-started/installation/](https://mui.com/material-ui/getting-started/installation/)
+- MaterialUI. (20 de noviembre de 2026). *MaterialUI*. Obtenido de MaterialUI: [https://mui.com/material-ui/react-grid/](https://mui.com/material-ui/react-grid/)
+- python. (19 de noviembre de 2026). *python*. Obtenido de python: [https://docs.python.org/3/library/csv.html](https://docs.python.org/3/library/csv.html)
+- React. (13 de noviembre de 2026). *React*. Obtenido de React: [https://react.dev/learn/passing-props-to-a-component](https://react.dev/learn/passing-props-to-a-component)
+- Typescript. (13 de noviembre de 2026). *TypescriptLang*. Obtenido de TypescriptLang: [https://www.typescriptlang.org/docs/](https://www.typescriptlang.org/docs/)
