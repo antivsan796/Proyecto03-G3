@@ -10,18 +10,25 @@ export function useDashboardData() {
   const [order, setOrder] = useState<DateOrder>('newest');
   const [useExamples, setUseExamples] = useState(false);
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [retryCount, setRetryCount] = useState(0);
   const rowsPerPage = 6;
 
   useEffect(() => {
     let active = true;
+    setLoadError(null);
     getOperations(useExamples).then((loadedRows) => {
       if (!active) return;
       setRows(loadedRows);
       setFilters({ ...emptyFilters, amountRange: [0, Math.max(0, ...loadedRows.map((row) => row.montoOtorgado))] });
       setStatus('ready');
-    }).catch(() => { if (active) setStatus('error'); });
+    }).catch((error: unknown) => {
+      if (!active) return;
+      setLoadError(error instanceof Error ? error.message : 'Error desconocido al cargar los datos.');
+      setStatus('error');
+    });
     return () => { active = false; };
-  }, [useExamples]);
+  }, [useExamples, retryCount]);
 
   function changeFilters(next: DashboardFilters) {
     setFilters(next);
@@ -38,6 +45,11 @@ export function useDashboardData() {
     setUseExamples(next);
   }
 
+  function retryLoad() {
+    setStatus('loading');
+    setRetryCount((count) => count + 1);
+  }
+
   function changeOrder(next: DateOrder) {
     setOrder(next);
     setPage(1);
@@ -49,7 +61,7 @@ export function useDashboardData() {
   const dates = rows.map((row) => row.fecha).sort();
 
   return {
-    rows, filteredRows, filters, changeFilters, resetFilters, status, useExamples, changeDataMode,
+    rows, filteredRows, filters, changeFilters, resetFilters, status, loadError, retryLoad, useExamples, changeDataMode,
     order, changeOrder, page: pagination.page, setPage, rowsPerPage,
     totalPages: pagination.totalPages, visibleRows: pagination.data, start: pagination.start,
     metrics: getMetrics(filteredRows),

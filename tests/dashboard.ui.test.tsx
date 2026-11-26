@@ -69,6 +69,11 @@ test('cambiar provincia actualiza los registros y los indicadores del dashboard'
     await screen.findByText(`12 registros · ${formatNumber(24)} operaciones`);
   } finally {
     cleanup();
+    const [{ goOffline }, { database }] = await Promise.all([
+      import('firebase/database'),
+      import('../src/firebase/firebase'),
+    ]);
+    goOffline(database);
   }
 });
 

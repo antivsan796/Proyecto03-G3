@@ -35,13 +35,15 @@ export default function DashboardPage() {
     <Container component="main" id="main" maxWidth="xl" sx={{ pb: 3 }}>
       <Stack direction={{ xs: 'column', sm: 'row' }} spacing={.5} sx={{ mb: 2, justifyContent: 'space-between', alignItems: { xs: 'flex-start', sm: 'center' } }}>
         <Typography variant="caption" color="text.secondary" role="status">
-          {data.status === 'ready' ? `${data.useExamples ? 'Datos de ejemplo' : 'Dataset validado'} · ${data.rows.length} registros` : 'Preparando datos…'}
+          {data.status === 'ready' ? `${data.useExamples ? 'Datos de ejemplo' : 'Firebase Realtime Database'} · ${data.rows.length} registros` : 'Preparando datos…'}
         </Typography>
         <FormControlLabel sx={{ m: 0 }} label={<Typography variant="caption">Usar datos de ejemplo</Typography>}
           control={<Switch size="small" checked={data.useExamples} disabled={data.status === 'loading'} onChange={(_, checked) => data.changeDataMode(checked)} />} />
       </Stack>
       {data.status === 'loading' && <Stack spacing={2} sx={{ py: 6, alignItems: 'center' }} role="status"><CircularProgress /><Typography>Cargando operaciones crediticias…</Typography></Stack>}
-      {data.status === 'error' && <Alert severity="error" action={<Button color="inherit" onClick={() => window.location.reload()}>Reintentar</Button>}>No se pudieron cargar los datos.</Alert>}
+      {data.status === 'error' && <Alert severity="error" action={<Button color="inherit" onClick={data.retryLoad}>Reintentar</Button>}>
+        No se pudieron cargar los datos: {data.loadError}
+      </Alert>}
       {data.status === 'ready' && <>
         <FiltersPanel filters={data.filters} onChange={data.changeFilters} rows={data.rows} bounds={data.bounds} onReset={resetFilters} />
         <KpiSection metrics={data.metrics} />

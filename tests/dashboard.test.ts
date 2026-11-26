@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { emptyFilters, filterOperations, getMetrics, getPage, groupAmounts, groupSectors, toCsv, updateFilters } from '../src/utils/dashboard';
-import { mapOperations, toCsvRow } from '../src/utils/operations';
+import { mapOperations, parseCsvOperations, toCsvRow } from '../src/utils/operations';
 import { formatDate } from '../src/utils/format';
 import { getOperationStatusStyle } from '../src/utils/operationStatus';
 import type { CsvOperation, DashboardFilters } from '../src/types/dashboard';
@@ -16,6 +16,14 @@ test('el modelo TypeScript conserva los trece campos y los totales del Sprint 1'
   assert.deepEqual(operations.map(toCsvRow), original);
   assert.deepEqual(getMetrics(operations), { amount: 1462645012.06, operations: 1206, average: 1212806.81 });
   assert.equal(filterOperations(operations, emptyFilters).length, 588);
+});
+
+test('lee registros desde la raíz numérica de Firebase y rechaza estructuras inválidas', () => {
+  const indexedRecords = { '0': original[0], '1': original[1] };
+  assert.deepEqual(parseCsvOperations(indexedRecords), original.slice(0, 2));
+  assert.deepEqual(parseCsvOperations(original.slice(0, 2)), original.slice(0, 2));
+  assert.throws(() => parseCsvOperations([]), /no devolvió registros/i);
+  assert.throws(() => parseCsvOperations({ '0': { ...original[0], FECHA: 42 } }), /estructura esperada/i);
 });
 
 test('los ejemplos son doce registros reales del JSON con categorías para interactuar', () => {

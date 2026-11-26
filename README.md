@@ -241,7 +241,7 @@ npm install
 npm run dev
 ```
 
-La dirección que aparece en la consola permite acceder al dashboard. En Codespaces también se puede abrir el puerto 5173 desde la pestaña Ports. Por ahora, los datos se leen de `data/datasetG3.json`.
+La dirección que aparece en la consola permite acceder al dashboard. En Codespaces también se puede abrir el puerto 5173 desde la pestaña Ports. El dashboard lee las operaciones desde la raíz (`/`) de Firebase Realtime Database, donde el JSON importado debe aparecer con claves numéricas de `0` a `587`. El interruptor «Usar datos de ejemplo» permite cargar el conjunto reducido local de `src/data/exampleOperations.json`. Si falla la lectura, se muestra el error y se puede reintentar sin recargar la página.
 
 Para comprobar los tipos se ejecuta `npm run typecheck`; para revisar los cálculos, `npm test`. Con `npm run build` se comprueban los tipos y se genera la aplicación.
 
