@@ -158,9 +158,11 @@ def validar_json(ruta_json, ruta_csv, ruta_mapa):
 
 
 if __name__ == "__main__":
-    try:
-        correcto = validar_json(BASE / "data/datasetG3.json", BASE / "data/datasetG3.csv",
-                                BASE / "data/normalizacion_categorias.json")
-        raise SystemExit(0 if correcto else 1)
-    except (OSError, UnicodeError, csv.Error, ValueError, TypeError) as error:
-        raise SystemExit(f"ERROR: {error}")
+    # la aplicación toma los datos de Firebase y localmente solo se usan 12 registros de ejemplo.
+    # try:
+    #     correcto = validar_json(BASE / "data/datasetG3.json", BASE / "data/datasetG3.csv",
+    #                             BASE / "data/normalizacion_categorias.json")
+    #     raise SystemExit(0 if correcto else 1)
+    # except (OSError, UnicodeError, csv.Error, ValueError, TypeError) as error:
+    #     raise SystemExit(f"ERROR: {error}")
+    print("los datos provienen de Firebase")

@@ -121,7 +121,9 @@ def csv_a_json(ruta_csv, ruta_json):
 
 
 if __name__ == "__main__":
-    try:
-        csv_a_json(BASE / "data/datasetG3.csv", BASE / "data/datasetG3.json")
-    except (OSError, UnicodeError, csv.Error, ValueError, OverflowError) as error:
-        raise SystemExit(f"ERROR: {error}")
+    # la aplicación toma los datos de Firebase y localmente solo se usan 12 registros de ejemplo.
+    # try:
+    #     csv_a_json(BASE / "data/datasetG3.csv", BASE / "data/datasetG3.json")
+    # except (OSError, UnicodeError, csv.Error, ValueError, OverflowError) as error:
+    #     raise SystemExit(f"ERROR: {error}")
+    print("los datos provienen de Firebase")
